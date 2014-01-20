@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      .editable {
+        border: 2px dotted white;
+        margin-bottom: 32px;
+        cursor: pointer;
+      }
+      .editable:hover {
+        border-color: blue;
+      }
+      .editable.editing {
+        border-color: red;
+        cursor: text;
+      }
+
+      .controls {
+        background-color: #aaa;
+        padding: 5px;
+        font-size: 13px;
+      }
+      .controls a {
+        display: inline-block;
+        margin-left: 10px;
+      }
+
+      .py-pastebin {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content">
+      <div class="editable">
+        <h3>Lorem ipsum dolor sit amet</h3>
+
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar massa
+        a augue rutrum, a posuere enim interdum. Integer turpis odio, pharetra
+        vitae turpis vitae, commodo pretium tortor. Praesent bibendum tortor et
+        pulvinar tincidunt. Duis egestas lacinia varius. Mauris condimentum erat
+        et tellus ornare, ac bibendum tellus aliquam. Fusce quis lorem enim.
+        Morbi sagittis leo at lorem dignissim, eu lobortis enim mattis. Morbi
+        dictum interdum lorem eu rhoncus.
+      </div>
+
+      <div class="editable">
+        <h3>Lorem ipsum dolor sit amet</h3>
+
+        Vestibulum egestas est massa, non ultricies nisl eleifend et. Cras a nibh
+        lacus. Aenean posuere ultricies congue. Ut arcu massa, imperdiet ut augue
+        fringilla, mollis congue est. Morbi a lacinia turpis. Duis vitae mi ac metus
+        lacinia feugiat. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+        Mauris sed urna iaculis, feugiat dolor eget, lacinia nisl. Aenean hendrerit,
+        lectus a elementum suscipit, sem justo tincidunt leo, sed ultrices metus urna
+        id tellus. Nam sit amet elit lorem. Aliquam ultrices orci euismod ante rutrum,
+        a ornare massa rutrum.
+      </div>
+
+      <div class="editable">
+        <h3>Lorem ipsum dolor sit amet</h3>
+
+        Mauris vulputate felis vel vehicula accumsan. Aenean blandit nec eros ac
+        malesuada. Aenean vehicula ullamcorper ligula, et facilisis tellus scelerisque
+        ut. Aenean vitae diam augue. Curabitur in nulla sed eros venenatis malesuada in
+        at velit. Praesent sed orci congue, sodales leo quis, vestibulum mauris.
+        Vestibulum pharetra risus vitae diam convallis, nec porta tellus condimentum.
+        Pellentesque lobortis purus leo, quis tincidunt dui luctus vel. Donec viverra
+        luctus dolor vitae porttitor. Sed in aliquet nisl, sit amet gravida risus.
+        Etiam iaculis ultricies eros, vitae tristique urna suscipit eu. Vestibulum
+        placerat nunc vitae vulputate sollicitudin. Praesent non varius nisl. Maecenas
+        lobortis vehicula orci eu lobortis. Duis tortor lacus, sagittis ut ipsum in,
+        dignissim fringilla enim.
+      </div>
+
+      <div class="editable">
+        <h3>Lorem ipsum dolor sit amet</h3>
+        Donec vitae sapien sed mauris congue fringilla rutrum ut turpis. Praesent
+        ultrices rutrum luctus. Phasellus elementum tortor sed quam bibendum
+        condimentum. Donec semper tincidunt dui sit amet euismod. Vivamus non
+        consectetur massa, vel iaculis odio. Vivamus iaculis dui non accumsan euismod.
+        Maecenas blandit imperdiet lacus ut tempor. Integer cursus, nisl sed venenatis
+        porttitor, sapien nisl mollis mauris, non volutpat nisl dui eu eros.
+        Suspendisse semper, ligula eget hendrerit ornare, urna sapien sagittis magna,
+        nec rhoncus nibh mauris at sem. Vivamus feugiat massa aliquam urna venenatis
+        mollis. Nunc tincidunt lectus quis erat fringilla semper. Ut sagittis tempor
+        tincidunt. Suspendisse potenti.
+      </div>
+
+      <div class="editable">
+        <h3>Lorem ipsum dolor sit amet</h3>
+        Sed sit amet justo ac ipsum ullamcorper porta. Integer eget lacus et diam
+        tristique interdum quis vitae leo. Donec neque nulla, dapibus eu diam nec,
+        pharetra consectetur mauris. Sed faucibus enim vel velit tristique tristique.
+        Nullam pretium pulvinar quam. Nam pretium tempor lacus eu hendrerit. Ut ac
+        ornare diam. Quisque volutpat ut tellus vitae dignissim. Vivamus euismod augue
+        nec dui tristique mattis. Vestibulum dictum nunc lectus, nec dictum sem cursus
+        vitae. Mauris feugiat libero eget libero elementum luctus. Nunc mattis mi nunc,
+        ac dictum nunc condimentum eu. Nulla convallis pulvinar est, in rhoncus lorem
+        dictum eget.
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="eventemitter2.js"></script>
+    <script src="ponyedit.js"></script>
+    <script src="editor.js"></script>
+  </body>
+</html>
