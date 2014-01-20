@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>Ractive Test Page</title>
+  <style>
+    body { margin: 0; padding: 20px; font-family: "Helvetica Neue"; font-weight: 300; font-size: 15px; line-height: 20px; }
+    ul { list-style: none; margin: 0; padding: 0; }
+    a.expand:before { content: "+"; }
+    a.expand.open:before { content: "-"; }
+    ul.sections { padding-left: 20px; display: none; }
+    ul.sections.open { display: block; }
+  </style>
+</head>
+<body>
+  <div id="toc-view"></div>
+  <script id="ractive-toc" type="text/ractive">
+    <ul>
+    {{#chapters}}
+      <li class="{{type}}">
+        <span class="ordinal">{{ordinalize(ordinal)}}</span>
+        <a data-id="{{element_id}}">{{title}}</a>
+        {{#(sections.length > 0)}}
+          <a class="{{.open ? 'expand open' : 'expand'}}" on-click="toggleSections"></a>
+          {{#open}}
+          <ul class="{{.open ? 'sections open' : 'sections'}}">
+            {{#sections}}
+              {{>section}}
+            {{/sections}}
+          </ul>
+          {{/open}}
+        {{/()}}
+      </li>
+    {{/chapters}}
+    </ul>
+
+    <!-- {{>section}} -->
+    <li class="{{type}}">
+      <span class="ordinal">{{ordinalize(ordinal)}}</span>
+      <a data-id="{{element_id}}">{{title}}</a>
+    </li>
+    <!-- {{/section}} -->
+
+  </script>
+  <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+  <script src="ractive.js"></script>
+  <script src="toc-data.js"></script>
+  <script src="toc-view.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+    <script src="http://rangy.googlecode.com/svn/trunk/currentrelease/rangy-core.js"></script>
+    <script src="js/hallo.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.ui.theme.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  </head>
+  <body>
+    <p class='block'>This is paragraph. Is Hallo going to let me edit it?</p>
+    <p class='block'>This is a different block, I don't want to edit these at the same time.</p>
+  </body>
+  <script>
+    $('.block').each(function(i,el){
+      $(this).on('click',function(event){
+        console.log('Editing Block:',this);
+        $(this).hallo({
+          toolbar: 'halloToolbarFixed',
+          plugins: {
+            'halloformat': {},
+            'hallojustify': {},
+            'hallolists': {},
+            'hallolink': {}
+          }
+        });
+      });
+    });
+  </script>
+</html>

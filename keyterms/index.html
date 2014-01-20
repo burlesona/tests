@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="css/frosty.css">
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="js/frosty.js"></script>
+    <style>
+      a.glossterm { text-decoration: underline; cursor: pointer; }
+    </style>
+	</head>
+	<body>
+    <p>
+      This is some text, and this is a keyterm:
+      <span class="margin_term">
+        <a class="glossterm" title="sample tip text">financial accounting</a>
+        <span class="glossdef" style="display: none;">The communication of financial information about a business or other type of organization to external audiences in order to help them assess its financial health and prospects.</span>
+      </span>.
+    </p>
+    <p>
+      Here's another <a class="link" href="#">item</a>, this one should be a clickable link you can edit.
+    </p>
+    <div class="link-edit" style="display: none;">
+      <label>Enter URL:</label>
+      <input type="text" name="link"></input>
+      <button>Save</button>
+    </div>
+    <script>
+      // Key Terms
+      $('.margin_term').each(function(i,el){
+        $(el).frosty({
+          html: true,
+          content: $(this).find('.glossdef').html(),
+          trigger: 'hover'
+        });
+      });
+      // Links
+      $('a.link').each(function(i,el){
+        $(el).frosty({
+          html: true,
+          content: $('.link-edit').clone().html(),
+          trigger: 'click'
+        });
+      });
+    </script>
+	</body>
+</html>
+
