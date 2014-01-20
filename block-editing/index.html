@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Block Switching Test</title>
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="http://rangy.googlecode.com/svn/trunk/currentrelease/rangy-core.js"></script>
+    <style>
+      body {
+        background: #EEE;
+        padding: 20px; margin: 0;
+        font-family: "Helvetica Neue", sans-serif; font-size: 15px; line-height: 20px;
+      }
+      p { padding: 10px 20px; margin-bottom: 20px; }
+      p.block { cursor: pointer; }
+      p.block.editing { background: #FFF; cursor: text; }
+    </style>
+  </head>
+  <body>
+    <p class="block">Here is a block.</p>
+    <p class="block">Here is another block.</p>
+  </body>
+  <script>
+    var disableEditing = function() {
+      $('.block').removeClass('editing').attr('contenteditable',false);
+    };
+
+    $(document,'.block').on('click',function(event){
+      event.stopPropagation();
+      disableEditing();
+      $(event.target).addClass('editing').attr('contenteditable',true);
+    });
+    $(document,'.block[contenteditable=true]').on('keydown',function(event){
+      console.log(event.which);
+      if(event.which == 13) {
+        disableEditing();
+        $('<p class="block editing" contenteditable="true"></p>').insertAfter(event.target);
+      }
+    });
+  </script>
+</html>
