@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      .editable {
+        border: 2px dotted white;
+        margin-bottom: 32px;
+        cursor: pointer;
+      }
+      .editable:hover {
+        border-color: blue;
+      }
+      .editable.editing {
+        border-color: red;
+        cursor: text;
+      }
+
+      .controls {
+        background-color: #aaa;
+        padding: 5px;
+        font-size: 13px;
+      }
+      .controls a {
+        display: inline-block;
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content">
+      <div class="editable">
+        <h3>Lorem ipsum dolor sit amet</h3>
+
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar massa
+        a augue rutrum, a posuere enim interdum. Integer turpis odio, pharetra
+        vitae turpis vitae, commodo pretium tortor. Praesent bibendum tortor et
+        pulvinar tincidunt. Duis egestas lacinia varius. Mauris condimentum erat
+        et tellus ornare, ac bibendum tellus aliquam. Fusce quis lorem enim.
+        Morbi sagittis leo at lorem dignissim, eu lobortis enim mattis. Morbi
+        dictum interdum lorem eu rhoncus.
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="rangy/rangy-core.js"></script>
+    <script src="editor.js"></script>
+    <script src="page.js"></script>
+  </body>
+</html>
