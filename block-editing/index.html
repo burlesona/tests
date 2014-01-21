@@ -9,32 +9,22 @@
         background: #EEE;
         padding: 20px; margin: 0;
         font-family: "Helvetica Neue", sans-serif; font-size: 15px; line-height: 20px;
+        cursor: default;
       }
-      p { padding: 10px 20px; margin-bottom: 20px; }
+      p { padding: 10px; }
       p.block { cursor: pointer; }
       p.block.editing { background: #FFF; cursor: text; }
     </style>
   </head>
   <body>
-    <p class="block">Here is a block.</p>
-    <p class="block">Here is another block.</p>
+    <div id="controls">
+      <a href="#" data-command="bold">Bold</a>
+      <a href="#" data-command="italic">Italics</a>
+    </div>
+    <div id="content">
+      <p class="block">Here is a block.</p>
+      <p class="block">Here is another block.</p>
+    </div>
   </body>
-  <script>
-    var disableEditing = function() {
-      $('.block').removeClass('editing').attr('contenteditable',false);
-    };
-
-    $(document,'.block').on('click',function(event){
-      event.stopPropagation();
-      disableEditing();
-      $(event.target).addClass('editing').attr('contenteditable',true);
-    });
-    $(document,'.block[contenteditable=true]').on('keydown',function(event){
-      console.log(event.which);
-      if(event.which == 13) {
-        disableEditing();
-        $('<p class="block editing" contenteditable="true"></p>').insertAfter(event.target);
-      }
-    });
-  </script>
+  <script src="editor.js"></script>
 </html>
