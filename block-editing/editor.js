@@ -6,6 +6,26 @@ editor = {
   exec: function(command) {
     var selection = rangy.getSelection();
     document.execCommand(command,false,selection);
+  },
+  deleteBlockIfEmpty: function(event) {
+    var $block = $(event.target)
+    if( $block.html() == "" ) {
+      $prev = $block.prev('.block');
+      $block.remove();
+      $prev.addClass('editing').attr('contenteditable',true).focus();
+      this.moveCaratToEndOfElement( $prev[0] );
+      return false;
+    } else {
+      return true;
+    }
+  },
+  moveCaratToEndOfElement: function(element) {
+    range = document.createRange();//Create a range (a range is a like the selection but invisible)
+    range.selectNodeContents(element);//Select the entire contents of the element with the range
+    range.collapse(false);//collapse the range to the end point. false means collapse to end rather than the start
+    selection = window.getSelection();//get the selection object (allows you to change selection)
+    selection.removeAllRanges();//remove any selections already made
+    selection.addRange(range);//make the range you have just created the visible selection
   }
 }
 
@@ -30,7 +50,11 @@ $(document).on('keydown','.block.editing',function(event){
     $('<p class="block editing" contenteditable="true"></p>').insertAfter(event.target).focus();
     return false;
   }
+  if(event.which == 8) {
+    return editor.deleteBlockIfEmpty(event);
+  }
 });
+
 
 
 // Toolbar Bindings
